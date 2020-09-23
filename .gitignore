@@ -110,15 +110,15 @@ logs
 evaluation/evaluation_data
 
 # tf2/
-tf2/venv_*
+/venv_*
 
-tf2/stylized/input/*
-!tf2/stylized/input/.gitkeep
+/stylized/input/*
+!/stylized/input/.gitkeep
 
-tf2/stylized/output/*
-!tf2/stylized/output/.gitkeep
+/stylized/output/*
+!/stylized/output/.gitkeep
 
-tf2/models/*
-!tf2/models/.gitkeep
+/models/*
+!/models/.gitkeep
 
-*/ignore/
+ignore/
