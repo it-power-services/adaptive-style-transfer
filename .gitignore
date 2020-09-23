@@ -105,6 +105,20 @@ venv.bak/
 
 *.hdf5
 *.zip
-models
+models/*
 logs
 evaluation/evaluation_data
+
+# tf2/
+tf2/venv_*
+
+tf2/stylized/input/*
+!tf2/stylized/input/.gitkeep
+
+tf2/stylized/output/*
+!tf2/stylized/output/.gitkeep
+
+tf2/models/*
+!tf2/models/.gitkeep
+
+*/ignore/
