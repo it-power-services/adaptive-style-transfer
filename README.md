@@ -59,7 +59,10 @@ If you use this code or data, please cite the paper:
 
 ### Copyright
 ```
-Adaptive Style Transfer  
+Adaptive Style Transfer with Tensorflow 2
+Copyright (C) 2020  IT Power Services Data Science Team
+
+Adaptive Style Transfer (paper and Tensorflow 1 Code) 
 Copyright (C) 2018  Artsiom Sanakoyeu, Dmytro Kotovenko  
 
 Adaptive Style Transfer is free software: you can redistribute it and/or modify
