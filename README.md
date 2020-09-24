@@ -1,34 +1,49 @@
 # A Style-Aware Content Loss for Real-time HD Style Transfer
+
+This repo is a forked from [CompVis/adaptive-style-transfer](https://github.com/CompVis/adaptive-style-transfer), with the aim to upgrade the code to Tensorflow 2
+
+### Original paper and code
 ***Artsiom Sanakoyeu\*, Dmytro Kotovenko\*, Sabine Lang, Björn Ommer*, In ECCV 2018 (Oral)**
 
 **Website**: https://compvis.github.io/adaptive-style-transfer   
 **Paper**: https://arxiv.org/abs/1807.10201
 
+## Pipeline
 ![pipeline](https://compvis.github.io/adaptive-style-transfer/images/eccv_pipeline_diagram_new_symbols_v2_4.jpg "Method pipeline")
 
-
+## Example
 [![example](https://compvis.github.io/adaptive-style-transfer/images/adaptive-style-transfer_chart_1800px.jpg "Stylization")](https://compvis.github.io/adaptive-style-transfer/images/adaptive-style-transfer_chart.jpg)
 Please click on the image for a [high-res version](https://compvis.github.io/adaptive-style-transfer/images/adaptive-style-transfer_chart.jpg).
 
 ## Requirements
-[[**TODO**]]
+* Python 3.6
+* Tensorflow 2.1
+* For the detailed Python packages see [tf2-requirements.txt](https://github.com/it-power-services/adaptive-style-transfer/blob/migrate_to_tf2/tf2-requirements.txt)
 
-## Inference 
-#### [[**TODO**]]
+## Usage
+* The code can be used by running the python script with the needed arguments
+`python style_transfer_main.py [arguments]`
+* Whether the code is used for training or stylization is specified by the argument `--phase`.
+* For all available arguments run `python style_transfer_main.py --help`
+	* some of the arguments are phase specific, which can be seen in the square brackets in th description of the argument
 
+### Training
+* For training the argument `--phase` should be set to `learn`  
+i.e., `python style_transfer_main.py --phase learn`
+* important arguments for the training process are:
+	* `--style_name` the identifier of the style to be trained, this will be used as a suffix to the name of the containing folder (e.g. 'picasso')
+	* `--ptad` path to art dataset
+	* `--ptcd` path to content dataset
+* other training arguments include a more model specific parameters like the number of filters, the weight of the different losses, etc. Please refer to the help for more details.
 
+### Inference 
+Assuming you have already trained a model (or downloaded a pre-trained model)
+* For stylizing a new image the argument `--phase` should be set to `stylize`
+* The argument `ii_dir` can be used to point to a specific image to stylize (e.g., `path_to_image/image.jpg`), or the path that includes multiple images to stylize. By default this argument is set to `./stylize/input/`.
+* The argument `save_dir` should point to the directory in which the stylized images are saved. By default this argument is set to `./stylize/output/`.
 
-### Pretrained models
-[[**TODO**]]
-
-
-
-## Training
-
-[[**TODO**]]
-
-## Video stylization
-[[**TODO**]]
+#### Pretrained models
+[[**TODO**]] 
 
 ## Reference
 

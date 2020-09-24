@@ -15,13 +15,13 @@ parser = argparse.ArgumentParser(description="")
 
 # ========================== GENERAL PARAMETERS ========================= #
 parser.add_argument(
-    "--style_name", dest="style_name", default="cezanne", help="Name of the model/style"
+    "--style_name", dest="style_name", default="cezanne", help="Name of the model/style. (Default: cezanne)"
 )
 parser.add_argument(
     "--phase",
     dest="phase",
     default="learn",
-    help="Specify current phase: learn or stylize.",
+    help="Specify current phase: learn or stylize. (Default: learn)",
 )
 parser.add_argument(
     "--image_size",
@@ -29,14 +29,14 @@ parser.add_argument(
     type=int,
     default=256 * 3,
     help="For training phase: will crop out images of this particular size."
-    "For inference phase: each input image will have the smallest side of this size. ",
+    "For inference phase: each input image will have the smallest side of this size. (Default: 256 * 3)",
 )
 parser.add_argument(
     "--ptmd",
     dest="path_to_models",
     type=str,
     default="./models",
-    help="Path to the models and checkpoints.",
+    help="Path to the models and checkpoints. (Default: ./models)",
 )
 parser.add_argument(
     "--ckpt_nmbr",
@@ -44,7 +44,7 @@ parser.add_argument(
     type=str,
     default="auto",
     help="Checkpoint number we want to use for stylizing, or continue from in training"
-    'If "auto" then the latest available will be used.',
+    'If "auto" then the latest available will be used. (Default: auto)',
 )
 # ========================= TRAINING PARAMETERS ========================= #
 parser.add_argument(
@@ -52,27 +52,27 @@ parser.add_argument(
     dest="path_to_art_dataset",
     type=str,
     default="../../data/paul-cezanne/",
-    help="Directory with paintings representing style we want to learn.",
+    help="[phase: learn] Directory with paintings representing style we want to learn. (Default: ../../data/paul-cezanne/)",
 )
 parser.add_argument(
     "--ptcd",
     dest="path_to_content_dataset",
     type=str,
     default="../../data/new_models/data_large/",
-    help="Path to the training dataset (images to the learn extracting the content from).",
+    help="[phase: learn] Path to the training dataset (images to the learn extracting the content from). (Default: ../../data/new_models/data_large/)",
 )
 parser.add_argument(
     "--total_steps",
     dest="total_steps",
     type=int,
     default=int(3e5),
-    help="Total number of steps",
+    help="[phase: learn] Total number of steps. (Default: 350,000)",
 )
 parser.add_argument(
-    "--batch_size", dest="batch_size", type=int, default=1, help="# images in batch"
+    "--batch_size", dest="batch_size", type=int, default=1, help="[phase: learn] # images in batch. (Default: 1)"
 )
 parser.add_argument(
-    "--lr", dest="lr", type=float, default=0.0002, help="initial learning rate for adam"
+    "--lr", dest="lr", type=float, default=0.0002, help="[phase: learn] initial learning rate for adam. (Default: 0.0002)"
 )
 # parser.add_argument('--save_freq',
 #                     dest='save_freq',
@@ -84,14 +84,14 @@ parser.add_argument(
     dest="gf_dim",
     type=int,
     default=32,
-    help="Number of filters in first conv layer of generator(encoder-decoder).",
+    help="[phase: learn] Number of filters in first conv layer of generator(encoder-decoder). (Default: 32)",
 )
 parser.add_argument(
     "--ndf",
     dest="df_dim",
     type=int,
     default=64,
-    help="Number of filters in first conv layer of discriminator.",
+    help="[phase: learn] Number of filters in first conv layer of discriminator. (Default: 64)",
 )
 
 # Weights of different losses.
@@ -100,21 +100,21 @@ parser.add_argument(
     dest="discr_loss_weight",
     type=float,
     default=1.0,
-    help="Weight of discriminator loss.",
+    help="[phase: learn] Weight of discriminator loss. (Default: 1.0)",
 )
 parser.add_argument(
     "--tlw",
     dest="transformer_loss_weight",
     type=float,
     default=100.0,
-    help="Weight of transformer loss.",
+    help="[phase: learn] Weight of transformer loss. (Default: 100.0)",
 )
 parser.add_argument(
     "--flw",
     dest="feature_loss_weight",
     type=float,
     default=100.0,
-    help="Weight of feature loss.",
+    help="[phase: learn] Weight of feature loss. (Default: 100.0)",
 )
 # parser.add_argument('--dsr',
 #                     dest='discr_success_rate',
@@ -129,14 +129,14 @@ parser.add_argument(
     dest="in_images_dir",
     type=str,
     default="./stylized/input/",
-    help="Directory with images we want to process.",
+    help="[phase: stylize] Directory with images we want to process. (Default: ./stylized/input/)",
 )
 parser.add_argument(
     "--save_dir",
     dest="out_images_dir",
     type=str,
     default="./stylized/output/",
-    help="Directory to save inference output images.",
+    help="[phase: stylize] Directory to save inference output images. (Default: ./stylized/output/)",
 )
 
 options = parser.parse_args()
